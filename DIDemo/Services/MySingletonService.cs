@@ -3,15 +3,16 @@
     public class MySingletonService
     {
         private readonly MyScopedService _scoped;
+        private readonly MyTransientService _transient;
 
-        public MySingletonService(MyScopedService scoped)
+        public MySingletonService(MyTransientService transient/*, MyScopedService scoped*/)
         {
-            _scoped = scoped;
+            _transient = transient;
         }
 
         public string GetName()
         {
-            return _scoped.GetName();
+            return _transient.GetName();
         }
     }
 }
